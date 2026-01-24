@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apna Mechanic | Your Car, Our Care</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,Segoe UI,Arial,sans-serif}
+    body{background:#071a3a;color:#fff}
+    a{text-decoration:none;color:inherit}
+
+    /* HEADER */
+    header{position:absolute;top:0;left:0;width:100%;padding:20px 70px;display:flex;justify-content:space-between;align-items:center;z-index:10}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:22px}
+    nav a{margin-left:26px;font-size:14px;position:relative}
+    nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:linear-gradient(90deg,#22c55e,#38bdf8,#9333ea);transition:.3s}
+    nav a:hover::after{width:100%}
+
+    /* HERO */
+    .hero{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;padding:140px 80px 80px;background:
+      linear-gradient(rgba(7,26,58,.75),rgba(7,26,58,.9)),
+      url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc');background-size:cover;background-position:center}
+    .hero h1{font-size:54px;line-height:1.2}
+    .hero h1 span{background:linear-gradient(90deg,#22c55e,#38bdf8,#9333ea);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p{margin:18px 0 30px;color:#cbd5e1}
+    .cta button{padding:14px 30px;border:none;border-radius:30px;margin-right:14px;font-size:15px;cursor:pointer;transition:.3s}
+    .btn-main{background:linear-gradient(90deg,#22c55e,#38bdf8);color:#000}
+    .btn-outline{background:transparent;border:1px solid #fff;color:#fff}
+    .cta button:hover{transform:translateY(-3px)}
+    .hero img{width:100%;max-width:520px;justify-self:end}
+
+    /* SERVICES */
+    .services-wrap{padding:90px 70px;text-align:center;background:linear-gradient(180deg,#071a3a,#1e3a8a)}
+    .services-wrap h2{font-size:34px}
+    .services-wrap p{color:#cbd5e1;margin:10px 0 50px}
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+    .service{background:#fff;color:#000;border-radius:18px;padding:30px;box-shadow:0 25px 50px rgba(0,0,0,.25);transition:.4s}
+    .service:hover{transform:translateY(-12px)}
+    .service img{width:80px;margin-bottom:14px}
+
+    /* BOOKING */
+    .booking{background:#f8fafc;color:#000;padding:90px 70px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .form-box{background:#fff;padding:40px;border-radius:22px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
+    .form-box h3{font-size:26px;margin-bottom:6px}
+    .form-box p{font-size:14px;color:#555;margin-bottom:20px}
+    .form-box input,.form-box select{width:100%;padding:14px;border-radius:12px;border:1px solid #cbd5e1;margin-bottom:14px}
+    .form-box button{width:100%;padding:15px;border:none;border-radius:14px;background:linear-gradient(90deg,#22c55e,#38bdf8,#9333ea);color:#fff;font-size:16px;cursor:pointer}
+
+    /* LOGIN */
+    .login{padding:90px 20px;text-align:center;background:#071a3a}
+    .login-box{max-width:420px;margin:auto;background:#0f172a;padding:40px;border-radius:20px;box-shadow:0 25px 50px rgba(0,0,0,.45)}
+    .login-box input{width:100%;padding:14px;border-radius:12px;border:none;margin-bottom:14px}
+    .login-box button{width:100%;padding:14px;border:none;border-radius:14px;background:linear-gradient(90deg,#22c55e,#38bdf8,#9333ea);font-weight:600;cursor:pointer}
+
+    footer{padding:30px;text-align:center;font-size:13px;background:#020617}
+
+    @media(max-width:900px){
+      header{padding:20px}
+      .hero,.booking{grid-template-columns:1fr;text-align:center}
+      .hero img{justify-self:center;margin-top:40px}
+    }
+    /* BUTTON HOVER EFFECTS */
+.btn-main,
+.form-box button,
+.login-box button {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-main:hover,
+.form-box button:hover,
+.login-box button:hover {
+  box-shadow: 0 0 20px rgba(56,189,248,0.6),
+              0 0 40px rgba(147,51,234,0.4);
+  transform: translateY(-4px) scale(1.03);
+}
+
+/* Outline button hover */
+.btn-outline:hover {
+  background: linear-gradient(90deg,#22c55e,#38bdf8,#9333ea);
+  color: #000;
+  border-color: transparent;
+  box-shadow: 0 0 20px rgba(56,189,248,0.5);
+}
+.service {
+  cursor: pointer;
+}
+
+.service::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(120deg,#22c55e,#38bdf8,#9333ea);
+  opacity: 0;
+  transition: .4s;
+  z-index: -1;
+}
+
+.service:hover {
+  color: #fff;
+}
+
+.service:hover::after {
+  opacity: 1;
+}
+.form-box input:focus,
+.form-box select:focus,
+.login-box input:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56,189,248,0.25);
+}
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero img {
+    margin-top: 40px;
+    max-width: 420px;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav a {
+    margin: 0 10px;
+    font-size: 13px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .services-wrap,
+  .booking {
+    padding: 60px 20px;
+  }
+
+  .form-box {
+    padding: 28px;
+  }
+}
+* {
+  scroll-behavior: smooth;
+}
+
+section {
+  animation: fadeUp .8s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.logo{
+  width: 220px;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  background: linear-gradient(90deg,#22c55e,#38bdf8,#9333ea);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+@media (max-width: 600px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #0f172a;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 9;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  nav a {
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    flex-direction: row;   /* keep items in a row */
+    justify-content: space-between; /* brand left, hamburger right */
+    align-items: center;
+    padding: 12px 20px;
+  }
+
+  .hamburger {
+    display: flex;
+    margin-left: auto;   /* push hamburger to the right side */
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #0f172a;
+    position: absolute;
+    top: 70px;
+    right: 0;   /* slide menu from right side */
+    width: 70%; /* narrower width for side menu */
+    padding: 20px 0;
+    z-index: 9;
+    border-radius: 0 0 0 12px;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  nav a {
+    margin: 12px 0;
+    text-align: center;
+  }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <svg width="38" height="38" viewBox="0 0 100 100">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#22c55e"/>
+        <stop offset="50%" stop-color="#38bdf8"/>
+        <stop offset="100%" stop-color="#9333ea"/>
+      </linearGradient></defs>
+    </svg>
+    <img class="logo" src="./assest/image 2527.png" alt="">
+    <h2 style="background:linear-gradient(90deg,#22c55e,#38bdf8,#9333ea);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Apna Mechanic</h2>
+  </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#book">Book Now</a>
+    <a href="#login">Login</a>
+    <a href="">Location</a>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</header>
+
+<section id="home" class="hero">
+  <div>
+    <h1>Your <span>Car</span>, Our Care!</h1>
+    <p>Expert Car Repair Services at Your Doorstep.</p>
+    <div class="cta">
+      <button class="btn-main">Book Service</button>
+      <a href="https://r.search.yahoo.com/_ylt=Awr1VSnSoXRp3QIAR8e7HAx.;_ylu=Y29sbwNzZzMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1770460882/RO=10/RU=https%3a%2f%2fmaps.google.com%2f/RK=2/RS=eDkGOEmj3D2osuUiyFUgBqos.4Y-"><button class="btn-outline">Location</button></a>
+    </div>
+  </div>
+  <img src="https://premiummech.com.au/wp-content/uploads/bigstock-Portrait-of-an-auto-mechanic-a-91601333.jpg" />
+</section>
+
+<section id="services" class="services-wrap">
+  <h2>Our Services</h2>
+  <p>We Offer The Best For You</p>
+  <div class="services">
+    <div class="service"><img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png"/><h4>General Service</h4></div>
+    <div class="service"><img src="https://cdn-icons-png.flaticon.com/512/3208/3208723.png"/><h4>Brake Repair</h4></div>
+    <div class="service"><img src="https://cdn-icons-png.flaticon.com/512/2933/2933926.png"/><h4>Battery Replacement</h4></div>
+    <div class="service"><img src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png"/><h4>Engine Repair</h4></div>
+  </div>
+</section>
+
+<section id="book" class="booking">
+  <div class="form-box">
+    <h3>Book Your Car Service</h3>
+    <p>Easy & Quick Booking</p>
+    <input placeholder="Your Name" />
+    <input placeholder="Phone Number" />
+    <select><option>Select Service</option></select>
+    <input type="datetime-local" />
+    <button>Book Now</button>
+  </div>
+  <img src="./assest/ChatGPT Image Jan 24, 2026, 02_45_11 PM car logo.png" style="width:100%" />
+</section>
+
+<section id="login" class="login">
+  <h2>User Login</h2>
+  <div class="login-box">
+    <input placeholder="Email" />
+    <input type="password" placeholder="Password" />
+    <button>Login</button>
+    <p style="margin-top:12px;font-size:13px">Forgot Password?</p>
+  </div>
+</section>
+
+<footer>© 2026 Apna Mechanic. All Rights Reserved.</footer>
+
+</body>
+<script>
+  function toggleMenu() {
+    document.querySelector('nav').classList.toggle('show');
+  }
+</script>
+</html>
